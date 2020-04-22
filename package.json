@@ -1,15 +1,17 @@
 {
-  "name": "resources",
+  "name": "intern-app",
   "version": "1.0.0",
   "description": "The Intern JS App",
-  "main": "resources/index.js",
+  "private": true,
   "scripts": {
     "test": "console.log('Hi mate!')"
   },
   "author": "Alexander Bulatov",
   "license": "ISC",
   "devDependencies": {
+    "lodash": "^4.17.15",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
-  }
+  },
+  "dependencies": {}
 }
