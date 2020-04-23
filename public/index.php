@@ -12,6 +12,6 @@ ini_set('error_reporting', '-1');
         <title>Getting Started</title>
     </head>
     <body>
-        <script src="dist/main.js"></script>
+        <script src="dist/bundle.js"></script>
     </body>
 </html>
