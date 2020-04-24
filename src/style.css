@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Montserrat';
+    src:  url('./Montserrat-Light.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
 .hello {
-    color: red
+    font-family: 'Montserrat';
+    color: red;
+    background: url("./icon.png");
 }
