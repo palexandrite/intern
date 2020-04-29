@@ -166,6 +166,18 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 
 /***/ }),
 
+/***/ "./src/BlobObject.js":
+/*!***************************!*\
+  !*** ./src/BlobObject.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return BlobObject; });\nclass BlobObject\n{\n    constructor(name)\n    {\n        this._name = name;\n    }\n    \n    get name()\n    {\n        return this._name;\n    }\n    \n    set name(value)\n    {\n        if (value.length < 3) {\n            console.error(\"This name is short\");\n            return;\n        }\n        this._name = value;\n    }\n    \n    getBlob()\n    {\n        let buffer = new Uint8Array([72, 101, 108, 108, 111]); // Здесь забито слово Hello\n        let blob = new Blob([buffer, \" \", \"world\", \" \", \"from\", \" \", this._name], {type: \"text/plain\"});\n        \n        return blob;\n    }\n}\n\n//# sourceURL=webpack:///./src/BlobObject.js?");
+
+/***/ }),
+
 /***/ "./src/Montserrat-Light.ttf":
 /*!**********************************!*\
   !*** ./src/Montserrat-Light.ttf ***!
@@ -198,7 +210,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _icon_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon.png */ \"./src/icon.png\");\n\r\n\r\n\r\n\r\nfunction component() {\r\n    const element = document.createElement(\"div\");\r\n    \r\n    element.innerHTML = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.join([\"Hello\", \"webpack\"], \"\");\r\n    element.setAttribute(\"class\", \"hello\");\r\n    \r\n    const myIcon = new Image();\r\n    myIcon.src = \"dist/\" + _icon_png__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\r\n    \r\n    element.prepend(myIcon);\r\n    \r\n    return element;\r\n}\r\n\r\ndocument.body.prepend(component());\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _icon_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon.png */ \"./src/icon.png\");\n/* harmony import */ var _BlobObject_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./BlobObject.js */ \"./src/BlobObject.js\");\n\r\n\r\n\r\n\r\n\r\nfunction component() {\r\n    const element = document.createElement(\"div\");\r\n    \r\n    element.innerHTML = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.join([\"Hello\", \"webpack\"], \"\");\r\n    element.setAttribute(\"class\", \"hello\");\r\n    \r\n    const myIcon = new Image();\r\n    myIcon.src = \"dist/\" + _icon_png__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\r\n    \r\n    element.prepend(myIcon);\r\n    \r\n    const outputBlob = new _BlobObject_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"](\"MyNewBlob\").getBlob();\r\n    let link = document.createElement(\"a\");\r\n    link.innerText = \"Download\";\r\n    link.download = \"file.txt\";\r\n    link.href = URL.createObjectURL(outputBlob);\r\n    link.style.margin = \"0 5px 0 5px\";\r\n    \r\n    element.append(link);\r\n    \r\n    return element;\r\n}\r\n\r\ndocument.body.prepend(component());\r\n\r\n/***\r\n * Download an image on the fly\r\n */\r\nlet img = document.querySelector(\"#download-image\");\r\nlet canvas = document.createElement(\"canvas\");\r\ncanvas.width = img.clientWidth;\r\ncanvas.height = img.clientHeight;\r\n\r\nlet context = canvas.getContext(\"2d\");\r\n\r\ncontext.drawImage(img, 0, 0);\r\n\r\ncanvas.toBlob(function(blob) {\r\n    // после того, как Blob создан, загружаем его\r\n    let link = document.createElement('a');\r\n    link.download = 'example.png';\r\n\r\n    link.href = URL.createObjectURL(blob);\r\n    link.click();\r\n\r\n    // удаляем внутреннюю ссылку на Blob, что позволит браузеру очистить память\r\n    URL.revokeObjectURL(link.href);\r\n}, \"image/png\");\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
