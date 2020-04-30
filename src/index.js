@@ -46,6 +46,11 @@ canvas.toBlob(function(blob) {
     link.download = 'example.png';
 
     link.href = URL.createObjectURL(blob);
+    
+    let stringForTest = `How we can import a variable in the string? Like this ${link.href}`;
+    
+    console.log(stringForTest);
+    
     link.click();
 
     // удаляем внутреннюю ссылку на Blob, что позволит браузеру очистить память
