@@ -47,9 +47,7 @@ canvas.toBlob(function(blob) {
 
     link.href = URL.createObjectURL(blob);
     
-    let stringForTest = `How we can import a variable in the string? Like this ${link.href}`;
-    
-    console.log(stringForTest);
+    console.log(`How we can import a variable in the string? Like this ${link.href}`);
     
     link.click();
 

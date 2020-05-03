@@ -4,6 +4,16 @@ error_reporting(E_ALL);
 ini_set("display_errors", '1');
 ini_set('error_reporting', '-1');
 
+defined('ROOT') or define('ROOT', __DIR__ . '/../');
+
+require __DIR__ . '/../config/main.php';
+require __DIR__ . '/../app/App.php';
+
+$first = new app\controllers\SiteController();
+
+$first->actionIndex();
+die();
+
 ?>
 
 <!doctype html>
