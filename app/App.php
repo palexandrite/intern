@@ -1,5 +1,7 @@
 <?php
 
+use app\Request;
+
 /**
  * Main Class of App
  *
@@ -25,3 +27,4 @@ class App
 }
 
 spl_autoload_register(['App', 'autoload'], true, false);
+Request::run();

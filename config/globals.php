@@ -1,6 +1,5 @@
 <?php
 
-$config = [
+$GLOBALS['config'] = [
     'shortUrl' => false,
 ];
-
